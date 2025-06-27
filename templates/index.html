@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citizen AI</title>
+</head>
+<body>
+    <h2>Ask the Assistant</h2>
+    <form action="/ask" method="POST">
+        <label for="question">Ask a Question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if question_response %}
+        <div><h3>Response:</h3><p>{{ question_response }}</p></div>
+    {% endif %}
+
+    <h2>Feedback Sentiment</h2>
+    <form action="/feedback" method="POST">
+        <label for="feedback">Enter Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    {% if sentiment %}
+        <div><h3>Sentiment:</h3><p>{{ sentiment }}</p></div>
+    {% endif %}
+
+    <h2>Report a Concern</h2>
+    <form action="/concern" method="POST">
+        <label for="concern">Describe Your Concern:</label>
+        <textarea id="concern" name="concern" rows="4"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    {% if concern_submitted %}
+        <div><h3>Concern Submitted:</h3><p>Your concern has been recorded.</p></div>
+    {% endif %}
+</body>
+</html>
